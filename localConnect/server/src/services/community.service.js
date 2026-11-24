@@ -53,7 +53,7 @@ export const communityService = {
     const skip = (page - 1) * limit;
     const [communities, total] = await Promise.all([
       Community.find(filter)
-        .select('name description location createdBy membersCount createdAt')
+        .select('name description location createdBy members membersCount createdAt')
         .sort({ membersCount: -1, createdAt: -1 })
         .skip(skip)
         .limit(limit)

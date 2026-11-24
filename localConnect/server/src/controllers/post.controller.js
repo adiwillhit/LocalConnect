@@ -10,12 +10,13 @@ export const createPost = asyncHandler(async (req, res) => {
 export const getPosts = asyncHandler(async (req, res) => {
   const page = Math.max(1, Number(req.query.page) || 1);
   const limit = Math.min(50, Math.max(1, Number(req.query.limit) || 10));
-  const { search, category, communityId } = req.query;
+  const { search, category, communityId, userId } = req.query;
 
   const { posts, meta } = await postService.getPosts({
     search,
     category,
     communityId,
+    userId,
     page,
     limit,
   });

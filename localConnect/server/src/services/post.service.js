@@ -53,11 +53,15 @@ export const postService = {
     return post.toJSON();
   },
 
-  async getPosts({ search, category, communityId, page = 1, limit = 10 }) {
+  async getPosts({ search, category, communityId, userId, page = 1, limit = 10 }) {
     const filter = {};
 
     if (communityId) {
       filter.communityId = communityId;
+    }
+
+    if (userId) {
+      filter.userId = userId;
     }
 
     if (category) {

@@ -28,6 +28,7 @@ router.get('/', getPosts);
 router.get('/popular', getPopularPosts);
 router.post('/', authenticate, validate(createPostSchema), createPost);
 router.get('/:id', getPostById);
+router.put('/:id', authenticate, validate(updatePostSchema), updatePost);
 router.patch('/:id', authenticate, validate(updatePostSchema), updatePost);
 router.delete('/:id', authenticate, deletePost);
 router.post('/:id/like', authenticate, likePost);

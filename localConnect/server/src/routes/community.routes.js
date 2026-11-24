@@ -25,6 +25,7 @@ router.get('/:id', getCommunityById);
 router.patch('/:id', authenticate, validate(updateCommunitySchema), updateCommunity);
 router.delete('/:id', authenticate, deleteCommunity);
 router.post('/:id/join', authenticate, joinCommunity);
+router.delete('/:id/join', authenticate, leaveCommunity);
 router.post('/:id/leave', authenticate, leaveCommunity);
 router.get('/:id/members', getCommunityMembers);
 router.get('/:id/posts', getCommunityPosts);

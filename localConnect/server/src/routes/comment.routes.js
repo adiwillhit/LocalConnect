@@ -6,6 +6,7 @@ import { updateCommentSchema } from '../validators/post.validator.js';
 
 const router = Router();
 
+router.put('/:id', authenticate, validate(updateCommentSchema), updateComment);
 router.patch('/:id', authenticate, validate(updateCommentSchema), updateComment);
 router.delete('/:id', authenticate, deleteComment);
 

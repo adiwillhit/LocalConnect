@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { getMe } from '../controllers/auth.controller.js';
 import {
   followUser,
   getFollowers,
@@ -15,6 +16,8 @@ import { updateLocationSchema, updateProfileSchema } from '../validators/user.va
 
 const router = Router();
 
+router.get('/me', authenticate, getMe);
+router.put('/me', authenticate, validate(updateProfileSchema), updateMyProfile);
 router.patch('/profile', authenticate, validate(updateProfileSchema), updateMyProfile);
 router.patch('/location', authenticate, validate(updateLocationSchema), updateMyLocation);
 router.get('/:id', getUserProfile);
